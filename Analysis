@@ -1,0 +1,18 @@
+--divivng into depth of our data
+--finding the sales over time
+SELECT TO_CHAR(date, 'YYYY-MM') AS month, SUM(grand_total) AS total_sales
+FROM records
+GROUP BY TO_CHAR(date, 'YYYY-MM')
+ORDER BY month;
+
+--total sales by customer
+SELECT customer_id, SUM(grand_total) AS total_spent
+FROM records 
+GROUP BY customer_id
+ORDER BY total_spent DESC;
+
+--total sales by product
+SELECT category, SUM(grand_total) AS total_sales
+FROM records
+GROUP BY category
+ORDER BY total_sales DESC;
