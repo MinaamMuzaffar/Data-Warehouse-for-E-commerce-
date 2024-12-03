@@ -1,0 +1,37 @@
+--to sellect database
+use e_commerce_data
+
+--creating a schema to place my table 
+CREATE SCHEMA my_data_warehouse;
+
+--creating table 
+CREATE TABLE IF NOT EXISTS my_data_warehouse.records (
+    status VARCHAR,
+    price DECIMAL,
+    order_quantity INT,
+    item_id DECIMAL,
+    item_name VARCHAR,
+    date DATE,
+    customer_id DECIMAL
+);
+
+--adding more columns
+ALTER TABLE your_schema.records
+ADD COLUMN Bi_status VARCHAR,
+ADD COLUMN year INT,
+ADD COLUMN month INT,
+ADD COLUMN Grand_total DECIMAL,
+ADD COLUMN payment_method VARCHAR;
+
+--to see table format
+SELECT *
+FROM "E_COMMERCE_DATA"."MY_DATA_WAREHOUSE"."RECORDS"
+LIMIT
+  10;
+
+--to see table descripton
+DESCRIBE TABLE my_data_warehouse.records;
+
+--to cahnge name
+ALTER TABLE my_data_warehouse.records
+RENAME COLUMN item_name TO category;
